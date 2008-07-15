@@ -1,3 +1,7 @@
+=== 0.4.5 2008-07-15
+
+* Fixing environment settings.
+
 === 0.4.4 2008-06-25
 
 * Can use to compile flash swfs

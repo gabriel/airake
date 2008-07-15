@@ -1,18 +1,20 @@
 == Setup
 
-To include mxmlc, adl and adt (from Flex Builder):
-  export PATH="/Applications/Adobe Flex Builder 3/sdks/moxie/bin:$PATH"
+Flex 3 SDK: http://opensource.adobe.com/wiki/display/flexsdk/Flex+SDK
+
+To include mxmlc, adl and adt (from Flex SDK):
+  export PATH="/path/to/flex3sdk/bin:$PATH"
+  
+Adobe AIR SDK: http://www.adobe.com/products/air/tools/sdk/
   
 To include adl and adt (from Apollo SDK):
-  export PATH="/Applications/ApolloSDK/bin:$PATH"
+  export PATH="/path/to/air-sdk/bin:$PATH"
   
 == Creating an AIR project
 
-  airake path/to/MyProject com.company.MyProject
+  airake path/to/MyProject
   
-will build a project scaffold with application name of MyProject and application id (used for AIR descriptor) of com.company.MyProject
-
-The project includes as3corelib and flexunit, and test scaffolding as well.  
+will build a project scaffold with application name of MyProject. The project includes as3corelib and flexunit, and test scaffolding as well.  
   
 == Tasks
 

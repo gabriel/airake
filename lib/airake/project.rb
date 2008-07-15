@@ -41,8 +41,8 @@ module Airake
           EOS
         end
         
-        options = YAML.load_file(File.join(base_dir, "airake.yml"))
-        env_options = options[env]
+        options = YAML.load_file(File.join(@base_dir, "airake.yml"))
+        env_options = options[@env]
         options = options.merge(env_options) if env_options
         options.symbolize_keys!
       end

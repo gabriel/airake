@@ -2,7 +2,6 @@ History.txt
 License.txt
 MIT-LICENSE
 Manifest.txt
-Notes.txt
 README.txt
 Rakefile
 air_generators/class/USAGE
