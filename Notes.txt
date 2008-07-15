@@ -1,0 +1,5 @@
+== Dev notes
+
+Regenerating manifest:
+
+  rake check_manifest | patch

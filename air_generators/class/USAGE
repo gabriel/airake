@@ -1,0 +1,8 @@
+Description:
+
+  Creates an actionscript class at a src path.
+
+Usage:
+
+  ./script/generate class com.foo.Bar [path/to/src (optional)]
+  

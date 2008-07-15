@@ -1,0 +1,5 @@
+Description:
+  Creates an AIR project scaffold.
+  
+Usage:
+  airake [path/to/AppName]

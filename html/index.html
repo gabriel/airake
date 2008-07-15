@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Airake - Rake tasks for Adobe AIR</title>
+    <link rel="stylesheet" href="screen.css" type="text/css" media="screen"/>
+  </head>
+  <body>
+    <div id="page">
+      <div id="content">
+        <div id="header">
+          <h1>Airake</h1>
+          <h2>Rake tasks and generators for Adobe AIR apps.</h2>
+          <p><a href="http://rubyforge.org/projects/airake/">RubyForge project</a> | 
+            <a href="resources.html">Resources</a> | <a href="rdoc/">RDOC</a> | 
+            <a href="http://groups.google.com/group/airake">Group</a> |
+            <a href="http://ducktyper.com">Blog</a>
+            </p><p><strong>View:</strong>
+            <a href="/tasks.html">Tasks</a> | <a href="/app_generators.html">App generators</a> |
+            <a href="/component_generators.html">Component generators</a>
+          </p> 
+        </div>
+                        
+        <div class="section">
+          <h1>What you need first</h1>
+          <h2>If you didn't already have it</h2>
+          
+          <ol>
+            <li>
+              <h2>Install 
+                <a href="http://www.ruby-lang.org/en/downloads/">ruby</a>, 
+                <a href="http://www.rubygems.org/read/chapter/3">rubygems</a> and
+                <a href="http://docs.rubyrake.org/read/chapter/6">rake</a></h2>      
+        	  <p>Or use the <a href="http://rubyosx.rubyforge.org/">one-click installer</a> (MacOSX)</p>
+            </li>
+                        
+            <li>
+              <h2>Get <a href="http://www.adobe.com/products/air/tools/sdk/">AIR SDK</a></h2>
+              <p>This gives you command line tools, including:
+                <a href="http://livedocs.adobe.com/labs/air/1/devappsflex/help.html?content=CommandLineTools_4.html">adl</a> 
+                  and <a href="http://livedocs.adobe.com/labs/air/1/devappsflex/help.html?content=SDKHelloWorld_6.html#1028523">adt</a>.
+               </p>
+            </li>
+            
+            <li>
+              <h2>Get <a href="http://opensource.adobe.com/wiki/display/flexsdk/Downloads">Flex 3 SDK</a></h2>
+              <p>Choose 'Open Source Flex SDK' link</p>
+              <p>This gives you command line tools, including:
+                <a href="http://livedocs.adobe.com/flex/201/html/compilers_123_11.html#149503">mxmlc</a> and 
+                <a href="http://labs.adobe.com/wiki/index.php/Flex_Compiler_Shell">fcsh</a>.</p>
+            </li>            
+                        
+            <li>
+              <h2>Install airake (for Mac):</h2>
+              <pre>sudo gem install airake</pre>
+              <p>While you're in the Terminal, include the AIR SDK and Flex SDK bin directories to your path:</p>
+              <pre>export PATH="/path/to/air_sdk/bin:$PATH"
+export PATH="/path/to/flex_sdk_3/bin:$PATH"</pre>
+            </li>
+            
+            <li>
+              <h2>Install airake (for Windows):</h2>
+              <pre>gem install airake</pre>
+              <p>Add <tt>c:\path\to\air_sdk\bin</tt> and <tt>c:\path\to\flex_sdk\bin</tt> to your Control Panel, Enviroment Variables, Path</p>
+              <p>Flex compiler requires a JRE (install <a href="http://www.java.com">java</a> if you don't have it)</a>
+            </li>
+            
+            <li>
+              <h2>Install the <a href="http://get.adobe.com/air/">AIR runtime</a></h2>              
+            </li>            
+            
+          </ol>
+        </div>
+        
+        <div class="section">
+          <h1>Getting started</h1>
+          
+          <ol>
+            <li>
+              <h2>Create your AIR project:</h2>
+              <pre>airake MyProject</pre>
+
+              <p>A new project is created. </p>
+            </li>
+          
+            <li>
+              <h2>Run it:</h2>
+              <pre>rake adl</pre>
+              <p>For faster compiling using the Flex Compiler Shell (FCSH), start (or stop/restart) the FCSH daemon:</p>
+              <pre>rake fcsh:start
+rake fcsh:stop
+rake fcsh:restart</pre>  
+            </li>
+            
+            <li>
+              <h2>Test it:</h2>
+              <pre>rake test</pre>
+              <p>It uses <a href="http://code.google.com/p/as3flexunitlib/">FlexUnit</a>.</p>
+            </li>
+            
+            <li>
+              <h2>Package it:</h2>
+              <pre>rake package</pre>
+              <p>Look for MyProject.air in the project bin directory.</p>
+              <p>If you need to create a certificate, run:</p>
+              <pre>rake certificate</pre>
+            </li>
+          </ol>
+        </div>
+        
+        <div class="section">
+          <h1>Environments</h1>        
+          <p>The airake.yml sets up your default, development, and test environments.</p>
+          <p>The properties listed are defaults that may be overriden or added to by the env section.</p>
+          <table>
+            <thead>
+            <tr><td>Property</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+            <tr><td>mxml_path</td><td>Path to application mxml</td></tr>
+            <tr><td>appxml_path</td><td>Path to application descriptor</td></tr>
+            <tr><td>src_dirs</td><td>Array of source paths</td></tr>
+            <tr><td>lib_dir</td><td>Path to lib dir</td></tr>
+            <tr><td>air_path</td><td>File to create for packaged AIR file</td></tr>
+            <tr><td>swf_path</td><td>File to create for generated swf file</td></tr>
+            <tr><td>assets</td><td>Assets (files and directories) to include in package</td></tr>
+            <tr><td>certificate</td><td>Path to certificate to sign packaged file</td></tr>
+            <tr><td>debug</td><td>Whether debug is on or off</td></tr>
+            </tbody>
+          </table>
+          <pre>---
+mxml_path: src/MyProject.mxml
+appxml_path: src/MyProject-app.xml
+
+src_dirs: [ 'src' ]
+lib_dir: lib 
+
+air_path: bin/MyProject.air
+swf_path: bin/MyProject.swf
+assets: src/assets
+certificate: cert.pfx
+
+development:
+  debug: true
+
+test:
+  mxml_path: test/Test.mxml
+  appxml_path: test/Test-app.xml
+  src_dirs: [ 'src', 'test' ]
+  debug: true
+</pre>
+
+      <p>You can setup new environments in the <code>airake.yml</code>. The default env is development and can be specified via AIRAKE_ENV env variable.</p>
+      <pre>foo:
+  mxml_path: src/com/foo/ui/Foo.mxml
+  appxml_path: src/Foo-app.xml
+  air_path: bin/Foo.air
+  swf_path: bin/Foo.swf
+  assets:
+</pre>
+      <p>Then run tasks using that env.</p>
+      <pre>AIRAKE_ENV=foo rake adl</pre>
+      <p>Would then run the ADL task using the overriden settings.</p>
+        </div>
+        
+        <div class="section">
+          <h1>Learn more</h1>
+          <p>Go to the <a href="resources.html">resources</a> page</p>
+        </div>
+        
+      </div>
+      
+      <div id="footer"><p><a href="http://ducktyper.com">Blog</a> | <a href="http://groups.google.com/group/airake">Group</a></p>
+        <p>Portions of this work are derived from <a href="http://code.google.com/p/projectsprouts/">Sprouts</a>, you should check them out!</p></div>
+    </div>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1286493-4";
+urchinTracker();
+</script>
+
+  </body>
+</html>

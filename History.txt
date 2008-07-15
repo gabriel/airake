@@ -1,0 +1,159 @@
+=== 0.4.4 2008-06-25
+
+* Can use to compile flash swfs
+
+=== 0.4.3 2008-03-01
+
+* Fix test env
+* Fix application mxml
+
+=== 0.4.2 2008-02-29
+
+* Fixes for AIR release 1.0
+
+=== 0.4.1 2008-01-28
+
+* Fix manifest
+
+=== 0.4.0 2008-01-28
+
+* Using a config file (airake.yml), breaking backwards compatibility, sorry!
+
+== 0.3.2 2008-01-19
+
+* Refactoring amxmlc command into mxmlc command to work for regular flash projects
+* Started flash tasks
+
+== 0.3.1 2007-12-16
+
+* Fixing generators for AIR beta 3 (descriptor xml)
+
+== 0.2.14 2007-12-14
+
+* Fixing adt package task to include storetype param (new in beta 3)
+* Fixing adt certificate task
+
+== 0.2.13 2007-12-05
+
+* Refactoring require asserts
+* Adding asdoc task
+* Refactoring comments
+* Adding tests for all the rake tasks (except certificate)
+
+== 0.2.12 2007-11-11
+
+* Fixing adl task
+* Adding air:package_only task
+
+== 0.2.11 2007-11-10
+
+* Fixing source paths under lib
+* Adding air:adl_only task for calling adl without compilation
+
+== 0.2.10 2007-11-10
+
+* Fixing non-escaped source path (causes problems when using path with spaces)
+
+== 0.2.9 2007-11-09
+
+* Fixing runner to output and flush as its running; This fixes the password request on package.
+* Refactoring to check command options in constructor
+* Using a build_env to determine what to pass to command; Fixes test source compiling during :normal build env (instead of only in :test env)
+
+== 0.2.8 2007-11-06
+
+* Fixing activesupport dependency
+* Using IO.popen for command runner
+* Fixed runner on windows (using cmd.exe /c)
+
+== 0.2.7 2007-10-24
+
+* survived revolutionhealth layoffs
+* removed -disable-incremental-optimizations=true; legacy flag.. use extra opts if you still need it
+* added command for acompc (Component compiler)
+* refactored commands (decoupled commands from project)
+
+== 0.2.6 2007-10-17
+
+* fixed compile with fcsh (mxmlc)
+* added rake clean task
+
+== 0.2.5 2007-10-17
+
+* airake and browsair apps includes script/generate and script/destroy for rubigen scopes :air and :airake [drnic]
+* airake @name and @app_name based on base_name not arguments [drnic]
+* upgraded dependency rubigen 1.0.3 -> 1.0.4 [drnic]
+* fixed bin/airake and browsair --version [gabe]
+* added class generator [gabe]
+
+== 0.2.4 2007-10-13
+
+* Fixing custom icon specification
+
+== 0.2.3 2007-10-12
+
+* Fixing default project layout bug
+* Using path/to/Name for browsair arg
+* Browsair will generate buttons
+
+== 0.2.2 2007-10-11
+
+* Fixed handling of spaces in name
+
+== 0.2.1 2007-10-10
+
+* Created browsair generator
+* Fixed air:package task
+* Fixed package icon support; added ASSETS env variable
+* Added air:certificate task
+* Default project is a browsair which points to airake resources page
+
+== 0.1.12 2007-10-08
+
+* Updated generator test scaffolding to Beta 2
+
+== 0.1.11 2007-10-05
+
+* Fixing fcsh error message
+* Documentation fixes
+
+== 0.1.10 2007-10-01
+
+* Moving fcsh tasks into own namespace. New tasks names are: fcsh:start, fcsh:stop, fcsh:restart
+* DEBUG=true is enabled by default for test and adl tasks
+* Updated to use AIR beta 2
+* Updated documentation
+* Removed fail message on mxmlc
+
+== 0.1.9 2007-09-06
+
+* Updating documentation
+
+== 0.1.8 2007-09-04
+
+* Fix fail message to not show on compile error
+
+== 0.1.7 2007-09-03
+
+* FCSH warnings are to not trigger compile error
+* Made additional options available via rake ENV
+* Other refactoring
+
+== 0.1.6 2007-08-31
+
+* Fixing task bugs
+
+== 0.1.5 2007-08-30
+
+* Fixed required include in Rakefile
+* Removing app_id as required argument
+* Refactored deployment.rake
+
+== 0.1.4 2007-08-30
+
+* Fixed bug with app_name being titleized
+
+== 0.1.3 2007-08-29
+
+* 1 major enhancement:
+  * Initial release
